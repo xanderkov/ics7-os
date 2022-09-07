@@ -1,0 +1,7 @@
+      WhereINT.LST					 Sourcer Listing v3.07     7-Sep-22  12:04 pm   Page 1
+
+0000:0020  46					inc	si
+0000:0021  07					pop	es
+0000:0022  0A 02				or	al,[bp+si]
+0000:0024  0A 04				or	al,[si]
+  
