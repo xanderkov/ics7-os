@@ -17,7 +17,7 @@
 020A:07D2  1F					pop	ds
 020A:07D3  EB 03				jmp	short loc_23		; (07D8)
 020A:07D5			loc_22:
-;; cli - cброс IF
+;; cli - запрет прерываний
 020A:07D5  FA					cli				; Disable interrupts
 020A:07D6  EB F8				jmp	short loc_21		; (07D0)
 020A:07D8			loc_23:

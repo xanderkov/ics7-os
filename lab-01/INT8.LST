@@ -21,7 +21,7 @@
 020A:0765  75 15				jne	loc_17			; Jump if not equal
 020A:0767  81 3E 006C 00B0			cmp	word ptr ds:[6Ch],0B0h	; (0040:006C=0C41Bh)
 020A:076D  75 0D				jne	loc_17			; Jump if not equal
-;;	Сутки прошли - зануление счетчика таймера
+;;	Сутки прошли - обнуление счетчика таймера
 020A:076F  A3 006E				mov	word ptr ds:[6Eh],ax	; (0040:006E=0Bh)
 020A:0772  A3 006C				mov	word ptr ds:[6Ch],ax	; (0040:006C=0C41Bh)
 020A:0775  C6 06 0070 01			mov	byte ptr ds:[70h],1	; (0040:0070=0)
