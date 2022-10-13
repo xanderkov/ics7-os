@@ -7,7 +7,8 @@
 
 #define SLEEP_FOR 5
 
-char *exec_params[2] = {"app1.exe", "app2.exe"};
+char *exec_params[2] = {"task3/app1.exe", "task3/app2.exe"};
+
 
 int main(void) {
     pid_t child_pid[2];

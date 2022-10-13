@@ -1,3 +1,0 @@
-Ivanov 20 5 5 5
-Ne_Ivanov 19 4 4 4 3
-Sergey 18 3 3 3 3 3 3 3

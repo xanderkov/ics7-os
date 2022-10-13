@@ -1,0 +1,1 @@
+void compare_time();

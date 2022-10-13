@@ -1,1 +1,0 @@
-void sort_matrix(int **mtr, int n);
