@@ -2,7 +2,7 @@ CC := gcc
 CFLAGS := -std=c99 -Wall -Werror -pedantic
 OBJ := io.o main.o 
 
-all: task1, task2, task4, task3 task5
+all: task-1.c, task-2.c, task4, task3 task5
 	$(CC) task-1.c -o app1.out
 
 task1: task-1.c
