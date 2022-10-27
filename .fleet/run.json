@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "task5",
+            "program": "~/Documents/bmstu/ics7-os/unix-lab-02/task-5.c",
+        },
+
+    ]
+}
