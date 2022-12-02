@@ -6,14 +6,22 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SIZE_BUF 5
-#define COUNT 3	
-#define PERM S_IRWXU | S_IRWXG | S_IRWXO
-#define SLEEP 2
+#define SIZE_BUF 128
+#define PRODUCERS_AMOUNT 3
+#define CONSUMERS_AMOUNT 3
+#define PERMS S_IRWXU | S_IRWXG | S_IRWXO
 
-int* shared_buffer;
-int* sh_pos_prod;
-int* sh_pos_cons;
+int shmid, semid;
+char* addr3;
+
+char* addr;
+char* addr1;
+char* addr2;
+
+char** ptr_prod;
+char** ptr_cons;
+char*  alfa;
+
 
 #define SB 0
 #define SE 1
@@ -21,165 +29,163 @@ int* sh_pos_cons;
 
 #define P -1
 #define V 1
-		
+
 struct sembuf start_produce[2] = { {SE, P, 0}, {SB, P, 0} };
 struct sembuf stop_produce[2] =  { {SB, V, 0}, {SF, V, 0} };
 struct sembuf start_consume[2] = { {SF, P, 0}, {SB, P, 0} };
 struct sembuf stop_consume[2] =  { {SB, V, 0}, {SE, V, 0} };
 
 void producer(const int semid)
-{	
+{
 	while (1)
 	{
-	int sem_op_p = semop(semid, start_produce, 2);
-	if (sem_op_p == -1)
-	{
-		perror("Error operation on semaphors\n");
-		exit(1);
-	}
-	
-	shared_buffer[*sh_pos_prod] = *sh_pos_prod;
-	printf("Producer %d >>>>> %d\n", getpid(), shared_buffer[*sh_pos_prod]);
-	(*sh_pos_prod)++;
-	sleep(rand() % 3);
+        
+        int sem_op_p = semop(semid, start_produce, 2);
+        if (sem_op_p == -1)
+        {
+            perror("semop error\n");
+            exit(1);
+        }
 
-	int sem_op_v = semop(semid, stop_produce, 2);
-	if (sem_op_v == -1)
-	{
-		perror("Error operation on semaphors\n");
-		exit(1);
-	}
-}
+        **ptr_prod = *alfa;
+        printf("Producer [%d] >>>> [%c]\n", getpid(), **ptr_prod);
+
+        (*ptr_prod)++;
+        (*alfa)++;
+
+
+        sleep(rand() % 3);
+
+        int sem_op_v = semop(semid, stop_produce, 2);
+        if (sem_op_v == -1)
+        {
+            perror("semop error\n");
+            exit(1);
+        }
+    }
 }
 
 void consumer(const int semid)
-{	
+{
+	while (1)
+	{
+        int sem_op_p = semop(semid, start_consume, 2);
+        if (sem_op_p == -1)
+        {
+            perror("semop error\n");
+            exit(1);
+        }
 
-	while(1)
-	{
-	int sem_op_p = semop(semid, start_consume, 2);
-	if (sem_op_p == -1)
-	{
-		perror("Error operation on semaphor\n");
-		exit(1);
-	}
-		
-	printf("Consumer %d <<<<< %d\n", getpid(), shared_buffer[*sh_pos_cons]);
-	(*sh_pos_cons)++;
-	sleep(rand() % 3);
+        printf("Consumer [%d] <<<< [%c]\n", getpid(), **ptr_cons);
 
-	int sem_op_v = semop(semid, stop_consume, 2);
-	if (sem_op_v == -1)
-	{
-		perror("Error operation on semaphor\n");
-		exit(1);
+        (**ptr_cons)++;
+
+        sleep(rand() % 3);
+
+        int sem_op_v = semop(semid, stop_consume, 2);
+        if (sem_op_v == -1)
+        {
+            perror("semop error\n");
+            exit(1);
+        }
+    }
+}
+
+void create_producers() {
+    int pid = -1;
+
+	for (int i = 0; i < PRODUCERS_AMOUNT; i++)
+    {
+        pid = fork();
+        if (pid == -1)
+        {
+            perror("can't fork\n");
+            exit(1);
+        }
+
+        if (pid == 0)
+        {
+            producer(semid);
+            return;
+        }
 	}
 }
+
+void create_consumers() {
+    int pid = -1;
+
+    for (int i = 0; i < CONSUMERS_AMOUNT; i++)
+    {
+        pid = fork();
+        if (pid == -1)
+        {
+            perror("can't fork\n");
+            exit(1);
+        }
+
+        if (pid == 0)
+        {
+            consumer(semid);
+            return;
+        }
+	}
 }
 
 int main()
 {
-	int shmid, semid; 
-
-	if ((shmid = shmget(IPC_PRIVATE, (SIZE_BUF+2) * sizeof(int), IPC_CREAT | PERM)) == -1) 
+    key_t sem_key = ftok("key_file", 0);
+    key_t mem_key;
+	if ((shmid = shmget(mem_key, SIZE_BUF * sizeof(char), IPC_CREAT | PERMS)) == -1)
 	{
-		perror("Error create a shared area\n");
-		exit( 1 );
-	}
-
-	sh_pos_prod = shmat(shmid, NULL, 0); 
-	if (sh_pos_prod == (void*) -1)
-	{
-		perror("Error attach memory\n");
+		perror("shmget error\n");
 		exit(1);
 	}
 
-	shared_buffer = sh_pos_prod + 2 * sizeof(int); 
-	sh_pos_cons = sh_pos_prod + sizeof(int);
-
-	(*sh_pos_prod) = 0;
-	(*sh_pos_cons) = 0;
-
-	if ((semid = semget(IPC_PRIVATE, 3, IPC_CREAT | PERM)) == -1)
+	addr = shmat(shmid, NULL, 0);
+	if (addr == (void*) -1)
 	{
-		perror("Error create a semaphore\n");
-		exit( 1 );
+		perror("shmat error\n");
+		exit(1);
+	}
+
+    ptr_prod = addr;
+    ptr_cons = addr + sizeof(char*);
+    alfa = ptr_cons + sizeof(char*);
+
+	addr3 = alfa + sizeof(char);
+    
+    *ptr_prod = addr3;
+    *ptr_cons = addr3;
+
+	*addr = addr3;
+	*ptr_cons = addr3;
+    *alfa = 'a';
+
+	if ((semid = semget(sem_key, 3, IPC_CREAT | PERMS)) == -1)
+	{
+		perror("semget error\n");
+		exit(1);
 	}
 
 	int c_sb = semctl(semid, SB, SETVAL, 1);
-	int c_se = semctl(semid, SE, SETVAL, SIZE_BUF); 
-	int c_sf = semctl(semid, SF, SETVAL, 0); 
+	int c_se = semctl(semid, SE, SETVAL, SIZE_BUF);
+	int c_sf = semctl(semid, SF, SETVAL, 0);
 
 	if (c_se == -1 || c_sf == -1 || c_sb == -1)
 	{
-		perror("Error set semaphors\n");
+		perror("semctl error\n");
 		exit(1);
-	}	
-
-	int pid = -1;
-
-	for (int i = 0; i < 2*COUNT && pid != 0; i++) 
-    {
-        pid = fork();
-        if (pid == -1) 
-        {
-            perror("Fork error\n"); 
-            exit(1);
-        }
-
-        if (pid == 0) 
-        {
-            producer(semid);
-            return 0;
-        }
 	}
 
-	for (int i = 0; i < COUNT && pid != 0; i++) 
-    {
-        pid = fork();
-        if (pid == -1) 
-        {
-            perror("Fork error\n"); 
-            exit(1);
-        }
+    create_producers();
+    create_consumers();
 
-        if (pid == 0) 
-        {
-            consumer(semid);
-            return 0;
-        }
-	}
-
-/*
-	for (int i = 0; i < 2*COUNT && pid != 0; i++)
-	{
-		if ((pid = fork()) == -1)
-		{
-			perror("Fork error\n");
-			exit(1);
-		}
-
-		if (pid == 0)
-		{
-			if (i < COUNT)
-			{
-				consumer(semid);
-				return 0;
-			}
-			else
-			{
-				producer(semid);
-				return 0;
-			}
-		}
-	}
-*/		
-	for (int i = 0; i < 2*COUNT; i++)
+	for (int i = 0; i < (CONSUMERS_AMOUNT + PRODUCERS_AMOUNT); i++)
 		wait(NULL);
 
-	if (shmdt(sh_pos_prod) == -1) 
+	if (shmdt(addr) == -1)
 	{
-		perror("Error detach shared memory");
+		perror("shmdt error\n");
 		exit(1);
 	}
 }
