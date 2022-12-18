@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.9.15)  16 DEC 2022 16:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.11)  18 DEC 2022 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -192,9 +192,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language59). Reported on input line 105.
+(babel)             (\language37). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language59). Reported on input line 108.
+(babel)             (\language37). Reported on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-russian/russianb.ldf
 File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
@@ -1751,99 +1751,99 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [3
 
 ]
-Overfull \hbox (3.98012pt too wide) in paragraph at lines 35--37
+Overfull \hbox (3.98012pt too wide) in paragraph at lines 37--39
 []\T2A/cmr/m/n/14.4 Помимо это-го, об-ра-бот-чик вы-пол-ня-ет де-кре-мент счет-
 чи-ка вре-ме-ни, остав-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 44.
+(hyperref)                removing `\newline' on input line 48.
 
 [5]
-Overfull \hbox (1.32037pt too wide) in paragraph at lines 61--62
+Overfull \hbox (1.32037pt too wide) in paragraph at lines 65--66
 []\T2A/cmr/m/n/14.4 Звуковая кар-та име-ет уро-вень при-о-ри-те-та вы-ше, чем к
 ла-ви-а-ту-ра и мышь,
  []
 
 [6]
-Overfull \hbox (2.26762pt too wide) in paragraph at lines 88--107
+Overfull \hbox (2.26762pt too wide) in paragraph at lines 92--111
  [] 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 []|\T2A/cmr/m/n/14.4 Потоки про-фес-си-о-наль-но-го
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 157--158
+Underfull \hbox (badness 1490) in paragraph at lines 161--161
 \T2A/cmr/m/n/14.4 те-том вы-ше, чем у дру-гих
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 157--158
+Underfull \hbox (badness 1571) in paragraph at lines 161--161
 \T2A/cmr/m/n/14.4 по-то-ков на си-сте-ме, за ис-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
 \T2A/cmr/m/n/14.4 клю-че-ни-ем кри-ти-че-ских
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 158--159
+Underfull \hbox (badness 2512) in paragraph at lines 162--162
 \T2A/cmr/m/n/14.4 при-ло-же-ний пер-во-го пла-на,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 \T2A/cmr/m/n/14.4 на-при-мер Windows Media
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 159--160
+Underfull \hbox (badness 2103) in paragraph at lines 163--163
 \T2A/cmr/m/n/14.4 ля-ю-щи-е-ся ча-стью преды-ду-
  []
 
 
-Underfull \hbox (badness 5302) in paragraph at lines 160--160
+Underfull \hbox (badness 5302) in paragraph at lines 164--164
 []|\T2A/cmr/m/n/14.4 Потоки, ис-чер-пав-шие свою
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 160--160
+Underfull \hbox (badness 1286) in paragraph at lines 164--164
 \T2A/cmr/m/n/14.4 до-лю вре-ме-ни цен-траль-но-го
  []
 
 [8] [9]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-175.
+179.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-Overfull \hbox (4.26363pt too wide) in paragraph at lines 187--205
+Overfull \hbox (4.26363pt too wide) in paragraph at lines 191--209
  [] 
  []
 
 [10]
-Overfull \hbox (8.35103pt too wide) in paragraph at lines 212--215
+Overfull \hbox (8.35103pt too wide) in paragraph at lines 216--219
 \T2A/cmr/m/n/14.4 нии го-тов-но-сти к вы-пол-не-нию за по-след-нюю се-кун-ду. П
 ро-це-ду-ра \T2A/cmtt/m/n/14.4 schedcpu()
  []
 
-[11]) [12]
+) [11]
 
 Package caption Warning: Unused \captionsetup[figure] on input line 23.
 See the caption package documentation for explanation.
@@ -1864,10 +1864,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46915 strings out of 478287
- 1045175 string characters out of 5849289
- 2084189 words of memory out of 5000000
- 64331 multiletter control sequences out of 15000+600000
+ 46913 strings out of 478287
+ 1045159 string characters out of 5849288
+ 2085186 words of memory out of 5000000
+ 64330 multiletter control sequences out of 15000+600000
  488065 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,10n,110p,10599b,1824s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1883,10 +1883,10 @@ b></usr/share/texmf/fonts/type1/public/cm-super/sfrm3583.pfb></usr/share/texmf/
 fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texmf/fonts/type1/public/c
 m-super/sfxc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc2074.pfb
 >
-Output written on main.pdf (12 pages, 416557 bytes).
+Output written on main.pdf (11 pages, 416081 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 176 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

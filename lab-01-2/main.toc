@@ -15,4 +15,4 @@
 \contentsline {section}{\numberline {2.1}Windows системы}{5}{section.2.1}%
 \contentsline {subsection}{MMCSS}{8}{subsection*.9}%
 \contentsline {section}{\numberline {2.2}Unix системы}{9}{section.2.2}%
-\contentsline {chapter}{\nonumberline Вывод}{12}{chapter*.13}%
+\contentsline {chapter}{\nonumberline Вывод}{11}{chapter*.13}%
