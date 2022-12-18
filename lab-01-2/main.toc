@@ -1,0 +1,18 @@
+\global \c@tocdepth 2\relax 
+\global \c@secnumdepth 1\relax 
+~\hfill \textnormal {Страница}\par 
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{\numberline {1}Функции системного таймера \newline в системах разделения времени}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Windows системы}{3}{section.1.1}%
+\contentsline {subsection}{Обработчик прерывания по тику}{3}{subsection*.1}%
+\contentsline {subsection}{Обработчик прерывания по главному тику}{3}{subsection*.2}%
+\contentsline {subsection}{Обработчик прерывания по кванту}{3}{subsection*.3}%
+\contentsline {section}{\numberline {1.2}Unix системы}{4}{section.1.2}%
+\contentsline {subsection}{Обработчик прерывания по тику}{4}{subsection*.4}%
+\contentsline {subsection}{Обработчик прерывания по главному тику}{4}{subsection*.5}%
+\contentsline {subsection}{Обработчик прерывания по кванту}{5}{subsection*.6}%
+\contentsline {chapter}{\numberline {2}Пересчет динамических \newline приоритетов}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Windows системы}{5}{section.2.1}%
+\contentsline {subsection}{MMCSS}{8}{subsection*.9}%
+\contentsline {section}{\numberline {2.2}Unix системы}{9}{section.2.2}%
+\contentsline {chapter}{\nonumberline Вывод}{12}{chapter*.13}%
